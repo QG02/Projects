@@ -28,6 +28,21 @@ public final class DAOFactory {
        Connection getConnection(){
            return conn;
        }
+
+       //Added get method to return the studentDAO
+       public StudentDAO getStudentDAO(){
+            return new StudentDAO(this);
+       }
+
+       //Added get method to return the teacherDAO
+       public TeacherDAO getTeacherDAO(){
+            return new TeacherDAO(this);
+       }
+
+       //Added get method to return the ClassDAO
+       public ClassDAO getClassDAO(){
+            return new ClassDAO(this);
+       }
 }
 
 
