@@ -1,12 +1,14 @@
 package Source_Files;
 
+import java.sql.*;
+
 public class Grade {
     private final int gradeID;
     private final Student student;
     private final char grade;
-    private final String date_recorded;
+    private final Date date_recorded;
 
-    public Grade(int gradeID, Student student, char grade, String date_recorded){
+    public Grade(int gradeID, Student student, char grade, Date date_recorded){
         this.gradeID = gradeID;
         this.student = student;
         this.grade = grade;
@@ -25,7 +27,7 @@ public class Grade {
         return grade;
     }
 
-    public String getDate_recorded() {
+    public Date getDate_recorded() {
         return date_recorded;
     }
 }
