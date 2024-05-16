@@ -1,8 +1,6 @@
 package DAO_Files;
 
 import Source_Files.Teacher;
-
-import javax.xml.transform.Result;
 import java.sql.*;
 
 public class TeacherDAO {
@@ -28,10 +26,37 @@ public class TeacherDAO {
             if (conn != null) {
                 ps = conn.prepareStatement(TeacherQuery);
                 ps.setInt(1, id);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+
+                    int teacherID = rs.getInt("teacher_id");
+                    String firstName = rs.getString("first_name");
+                    String lastName = rs.getString("last_name");
+                    String email = rs.getString("email");
+                    String specialization = rs.getString("specialization");
+
+                    teacher = new Teacher(teacherID, firstName, lastName, email, specialization);
+                }
             }
         }catch (SQLException e){
             throw new DAOException(e.getMessage());
-        } finally
+        } finally{
+            if (rs != null){
+                try{
+                    rs.close();
+                } catch (SQLException e){
+                    throw new DAOException(e.getMessage());
+                }
+            }
+            if (ps != null){
+                try{
+                    ps.close();
+                }catch (SQLException e){
+                    throw new DAOException(e.getMessage());
+                }
+            }
+        }
 
+        return teacher;
     }
 }
