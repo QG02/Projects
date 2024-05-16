@@ -2,14 +2,14 @@ package Source_Files;
 
 import java.sql.Time;
 
-public class Class {
+public class SchoolClass {
     private final int classID;
     private final String className;
     private final Teacher teacher;
     private final Time startTime;
     private final Time endTime;
 
-    public Class(int classID, String className, Teacher teacher, Time startTime, Time endTime){
+    public SchoolClass(int classID, String className, Teacher teacher, Time startTime, Time endTime){
         this.classID = classID;
         this.className = className;
         this.teacher = teacher;

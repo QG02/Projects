@@ -18,15 +18,20 @@ public class TeacherDAO {
     public Teacher find(int id){
 
         Teacher teacher = null;
+        Connection conn = null;
         ResultSet rs = null;
         PreparedStatement ps = null;
 
         try {
-            Connection conn = daoFactory.getConnection();
+
+            conn = daoFactory.getConnection();
+
             if (conn != null) {
+
                 ps = conn.prepareStatement(TeacherQuery);
                 ps.setInt(1, id);
                 rs = ps.executeQuery();
+
                 if (rs.next()) {
 
                     int teacherID = rs.getInt("teacher_id");

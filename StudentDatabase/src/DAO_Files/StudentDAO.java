@@ -2,8 +2,6 @@ package DAO_Files;
 
 import Source_Files.Student;
 import java.sql.*;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,10 +36,10 @@ public class StudentDAO {
 
                 if (rs.next()) {
                     HashMap<String, String> parameters = new HashMap<String, String>();
-                    parameters.put("student_id", Integer.toString(rs.getInt("student_id")));
-                    parameters.put("first_name", rs.getString("first_name"));
-                    parameters.put("last_name", rs.getString("last_name"));
-                    parameters.put("date_of_birth", rs.getDate("date_of_birth").toString());
+                    parameters.put("studentId", Integer.toString(rs.getInt("student_id")));
+                    parameters.put("firstName", rs.getString("first_name"));
+                    parameters.put("lastName", rs.getString("last_name"));
+                    parameters.put("dob", rs.getDate("date_of_birth").toString());
 
                     int gender = rs.getInt("gender");
                     parameters.put("gender", String.valueOf(gender));
