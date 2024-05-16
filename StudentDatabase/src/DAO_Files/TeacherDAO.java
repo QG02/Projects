@@ -38,23 +38,8 @@ public class TeacherDAO {
                     teacher = new Teacher(teacherID, firstName, lastName, email, specialization);
                 }
             }
-        }catch (SQLException e){
-            throw new DAOException(e.getMessage());
-        } finally{
-            if (rs != null){
-                try{
-                    rs.close();
-                } catch (SQLException e){
-                    throw new DAOException(e.getMessage());
-                }
-            }
-            if (ps != null){
-                try{
-                    ps.close();
-                }catch (SQLException e){
-                    throw new DAOException(e.getMessage());
-                }
-            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
         return teacher;
