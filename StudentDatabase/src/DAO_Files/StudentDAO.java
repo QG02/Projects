@@ -9,32 +9,53 @@ import java.util.HashMap;
 
 public class StudentDAO {
 
+
+    //Initializing the query as a constant outside the method body
     private static final String StudentQuery = "SELECT * FROM student WHERE student_id = ?";
 
+    //Initialize DAOFactory object
     private final DAOFactory daoFactory;
 
+    //Load into StudentDAO constructor
     public StudentDAO(DAOFactory daoFactory) {
 
         this.daoFactory = daoFactory;
 
     }
 
+    //Student.find(id) to retrieve student data associated with the ID
     public Student find(int id) {
 
+        //Initialize empty student object
         Student student = null;
-        ResultSet rs = null;
+        //Initialize empty connection
+        Connection conn = null;
+        //Initialize empty prepared statement
         PreparedStatement ps = null;
+        //Initialize empty result set
+        ResultSet rs = null;
 
-        try {
+        try{
 
-            Connection conn = daoFactory.getConnection();
-            if (conn != null) {
+            //Get connection securely through a method
+            conn = daoFactory.getConnection();
 
+            //Validate connection
+            boolean hasConn = (conn != null);
+            if(hasConn){
+
+                //Execute query
                 ps = conn.prepareStatement(StudentQuery);
-                ps.setInt(1, id);
+                //Start retrieving data starting at the id column
+                ps.setInt(1,id);
+                //Execute query
                 rs = ps.executeQuery();
 
-                if (rs.next()) {
+                //Validate result set
+                boolean hasRS = (rs != null);
+                if(hasRS){
+
+                    //Load the hashmap as parameters to pass it into the empty student object
                     HashMap<String, String> parameters = new HashMap<String, String>();
                     parameters.put("studentId", Integer.toString(rs.getInt("student_id")));
                     parameters.put("firstName", rs.getString("first_name"));
@@ -48,6 +69,7 @@ public class StudentDAO {
                     parameters.put("email", rs.getString("email"));
                     parameters.put("phone", rs.getString("phone"));
 
+                    //Create new student object using the parameters
                     student = new Student(parameters);
                 }
             }

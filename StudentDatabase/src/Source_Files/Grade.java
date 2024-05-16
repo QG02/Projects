@@ -2,12 +2,14 @@ package Source_Files;
 
 import java.sql.*;
 
+//Define Grade class
 public class Grade {
     private final int gradeID;
     private final Student student;
     private final char grade;
     private final Date date_recorded;
 
+    //Initialize Grade object constructor
     public Grade(int gradeID, Student student, char grade, Date date_recorded){
         this.gradeID = gradeID;
         this.student = student;
@@ -15,6 +17,7 @@ public class Grade {
         this.date_recorded = date_recorded;
     }
 
+    //Getter methods
     public int getGradeID() {
         return gradeID;
     }

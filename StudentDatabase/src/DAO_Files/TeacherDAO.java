@@ -5,41 +5,59 @@ import java.sql.*;
 
 public class TeacherDAO {
 
+    //Initializing the query as a constant outside the method body
     private static final String TeacherQuery = "SELECT * FROM teacher WHERE teacher_id = ?";
 
+    //Initialize DAOFactory object
     private final DAOFactory daoFactory;
 
+    //Load into TeacherDAO constructor
     public TeacherDAO(DAOFactory daoFactory) {
 
         this.daoFactory = daoFactory;
 
     }
 
-    public Teacher find(int id){
+    //Teacher.find(id) to retrieve student data associated with the ID
+    public Teacher find(int id) {
 
+        //Initialize empty teacher object
         Teacher teacher = null;
+        //Initialize empty connection
         Connection conn = null;
-        ResultSet rs = null;
+        //Initialize empty prepared statement
         PreparedStatement ps = null;
+        //Initialize empty result set
+        ResultSet rs = null;
 
-        try {
+        try{
 
+            //Get connection securely through a method
             conn = daoFactory.getConnection();
 
-            if (conn != null) {
+            //Validate connection
+            boolean hasConn = (conn != null);
+            if(hasConn){
 
+                //Pass the query into the prepared statement
                 ps = conn.prepareStatement(TeacherQuery);
-                ps.setInt(1, id);
+                //Start retrieving data starting at the id column
+                ps.setInt(1,id);
+                //Execute query
                 rs = ps.executeQuery();
 
-                if (rs.next()) {
+                //Validate result set
+                boolean hasRS = (rs != null);
+                if(hasRS){
 
+                    //Start retrieving data
                     int teacherID = rs.getInt("teacher_id");
                     String firstName = rs.getString("first_name");
                     String lastName = rs.getString("last_name");
                     String email = rs.getString("email");
                     String specialization = rs.getString("specialization");
 
+                    //Create new teacher object using the parameters
                     teacher = new Teacher(teacherID, firstName, lastName, email, specialization);
                 }
             }

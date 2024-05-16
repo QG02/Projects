@@ -3,8 +3,8 @@ package Source_Files;
 import java.sql.Date;
 import java.util.HashMap;
 
+//Define Student Class
 public class Student {
-    //initialize Student variables
     private final int studentID;
     private final String first_name;
     private final String last_name;
@@ -14,7 +14,7 @@ public class Student {
     private final String email;
     private final String phoneNumber;
 
-    //Creating a constructor for the student object using a String HashMap
+    //Initializing a constructor for the student object using a String HashMap
     //Make sure the parameters match the name of the columns in the Student table
     public Student(HashMap<String, String> parameters){
         this.studentID = Integer.parseInt(parameters.get("student_id"));
