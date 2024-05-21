@@ -37,4 +37,9 @@ public class Teacher {
     public String getSpecialization() {
         return specialization;
     }
+
+    @Override
+    public String toString(){
+
+    }
 }

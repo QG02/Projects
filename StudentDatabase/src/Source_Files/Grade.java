@@ -33,4 +33,8 @@ public class Grade {
     public Date getDate_recorded() {
         return date_recorded;
     }
+    @Override
+    public String toString(){
+
+    }
 }

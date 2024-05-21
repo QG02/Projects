@@ -42,4 +42,8 @@ public class SchoolClass {
     public Time getEndTime() {
         return endTime;
     }
+    @Override
+    public String toString(){
+
+    }
 }

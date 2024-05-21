@@ -59,6 +59,11 @@ public class Student {
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    @Override
+    public String toString(){
+
+    }
 }
 
 
