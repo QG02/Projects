@@ -7,14 +7,14 @@ public class Grade {
     private final int gradeID;
     private final Student student;
     private final char grade;
-    private final Date date_recorded;
+    private final Date dateRecorded;
 
     //Initialize Grade object constructor
-    public Grade(int gradeID, Student student, char grade, Date date_recorded){
+    public Grade(int gradeID, Student student, char grade, Date dateRecorded){
         this.gradeID = gradeID;
         this.student = student;
         this.grade = grade;
-        this.date_recorded = date_recorded;
+        this.dateRecorded = dateRecorded;
     }
 
     //Getter methods
@@ -30,11 +30,19 @@ public class Grade {
         return grade;
     }
 
-    public Date getDate_recorded() {
-        return date_recorded;
+    public Date getDateRecorded() {
+        return dateRecorded;
     }
+
     @Override
     public String toString(){
+        StringBuilder s = new StringBuilder();
 
+        s.append("Grade ID #").append(gradeID).append(", ");
+        s.append("Student ID #").append(student.getStudentID()).append(", ");
+        s.append("Assigned Grade: ").append(grade).append(", ");
+        s.append("Recorded: ").append(dateRecorded);
+
+        return s.toString();
     }
 }

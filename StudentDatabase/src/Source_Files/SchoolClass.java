@@ -44,6 +44,13 @@ public class SchoolClass {
     }
     @Override
     public String toString(){
+        StringBuilder s = new StringBuilder();
 
+        s.append("Class ID # ").append(classID).append(", ");
+        s.append("Class Name: ").append(className).append(", ");
+        s.append("Teacher: ").append(teacher.getTeacherID()).append(", ");
+        s.append("Class Time: ").append(startTime).append("-").append(endTime);
+
+        return s.toString();
     }
 }

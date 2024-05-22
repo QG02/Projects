@@ -6,9 +6,9 @@ import java.util.HashMap;
 //Define Student Class
 public class Student {
     private final int studentID;
-    private final String first_name;
-    private final String last_name;
-    private final Date date_of_birth;
+    private final String firstName;
+    private final String lastName;
+    private final Date dateOfBirth;
     private final String gender;
     private final String address;
     private final String email;
@@ -18,9 +18,9 @@ public class Student {
     //Make sure the parameters match the name of the columns in the Student table
     public Student(HashMap<String, String> parameters){
         this.studentID = Integer.parseInt(parameters.get("student_id"));
-        this.first_name = parameters.get("first_name");
-        this.last_name = parameters.get("last_name");
-        this.date_of_birth = Date.valueOf(parameters.get("date_of_birth"));
+        this.firstName = parameters.get("first_name");
+        this.lastName = parameters.get("last_name");
+        this.dateOfBirth = Date.valueOf(parameters.get("date_of_birth"));
         this.gender = parameters.get("gender");
         this.address = parameters.get("address");
         this.email = parameters.get("email");
@@ -28,20 +28,20 @@ public class Student {
     }
 
     //Getter methods
-    public int getStudent_id() {
+    public int getStudentID() {
         return studentID;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public String getGender() {
@@ -62,7 +62,17 @@ public class Student {
 
     @Override
     public String toString(){
+        StringBuilder s = new StringBuilder();
 
+        s.append("Student ID #").append(studentID).append(", ");
+        s.append("Student Name: ").append(firstName).append(" ").append(lastName).append(", ");
+        s.append("Date of Birth: ").append(dateOfBirth).append(", ");
+        s.append("Gender: ").append(gender).append(", ");
+        s.append("Address: ").append(address).append(", ");
+        s.append("Email: ").append(email).append(", ");
+        s.append("Phone Number: ").append(phoneNumber);
+
+        return s.toString();
     }
 }
 

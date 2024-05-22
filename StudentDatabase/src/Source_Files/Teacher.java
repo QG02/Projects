@@ -3,16 +3,16 @@ package Source_Files;
 //Define Teacher Class
 public class Teacher {
     private final int teacherID;
-    private final String first_name;
-    private final String last_name;
+    private final String firstName;
+    private final String lastName;
     private final String email;
     private final String specialization;
 
     //Initialize constructor
-    public Teacher(int teacherID, String first_name, String last_name, String email, String specialization) {
+    public Teacher(int teacherID, String firstName, String lastName, String email, String specialization) {
         this.teacherID = teacherID;
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.specialization = specialization;
     }
@@ -22,12 +22,12 @@ public class Teacher {
         return teacherID;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmail() {
@@ -40,6 +40,13 @@ public class Teacher {
 
     @Override
     public String toString(){
+        StringBuilder s = new StringBuilder();
 
+        s.append("Teacher ID #: ").append(teacherID).append(", ");
+        s.append("Teacher Name: ").append(firstName).append(" ").append(lastName).append(", ");
+        s.append("Email: ").append(email).append(", ");
+        s.append("Specialization: ").append(specialization);
+
+        return s.toString();
     }
 }
