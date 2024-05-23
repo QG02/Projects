@@ -27,7 +27,7 @@ public class DAOProperties {
         this.prefix=prefix;
     }
 
-    //Method to retrieve a property value throught a key & a prefix
+    //Method to retrieve a property value through a key & a prefix
     public String getProperty(String key){
         //Construct the full key
         String fullKey = prefix + "." + key;
