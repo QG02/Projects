@@ -64,12 +64,12 @@ public class Student {
     public String toString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("Student ID #").append(studentID).append(", ");
-        s.append("Student Name: ").append(firstName).append(" ").append(lastName).append(", ");
-        s.append("Date of Birth: ").append(dateOfBirth).append(", ");
-        s.append("Gender: ").append(gender).append(", ");
-        s.append("Address: ").append(address).append(", ");
-        s.append("Email: ").append(email).append(", ");
+        s.append("Student ID #").append(studentID).append("\n");
+        s.append("Student Name: ").append(firstName).append(" ").append(lastName).append("\n");
+        s.append("Date of Birth: ").append(dateOfBirth).append("\n");
+        s.append("Gender: ").append(gender).append("\n");
+        s.append("Address: ").append(address).append("\n");
+        s.append("Email: ").append(email).append("\n");
         s.append("Phone Number: ").append(phoneNumber);
 
         return s.toString();

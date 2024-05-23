@@ -46,9 +46,9 @@ public class SchoolClass {
     public String toString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("Class ID # ").append(classID).append(", ");
-        s.append("Class Name: ").append(className).append(", ");
-        s.append("Teacher: ").append(teacher.getTeacherID()).append(", ");
+        s.append("Class ID #").append(classID).append("\n");
+        s.append("Class Name: ").append(className).append("\n");
+        s.append("Teacher: ").append(teacher.getLastName()).append("\n");
         s.append("Class Time: ").append(startTime).append("-").append(endTime);
 
         return s.toString();

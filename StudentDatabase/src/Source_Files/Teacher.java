@@ -42,9 +42,9 @@ public class Teacher {
     public String toString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("Teacher ID #: ").append(teacherID).append(", ");
-        s.append("Teacher Name: ").append(firstName).append(" ").append(lastName).append(", ");
-        s.append("Email: ").append(email).append(", ");
+        s.append("Teacher ID #: ").append(teacherID).append("\n");
+        s.append("Teacher Name: ").append(firstName).append(" ").append(lastName).append("\n");
+        s.append("Email: ").append(email).append("\n");
         s.append("Specialization: ").append(specialization);
 
         return s.toString();

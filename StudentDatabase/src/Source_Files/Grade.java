@@ -38,9 +38,9 @@ public class Grade {
     public String toString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("Grade ID #").append(gradeID).append(", ");
-        s.append("Student ID #").append(student.getStudentID()).append(", ");
-        s.append("Assigned Grade: ").append(grade).append(", ");
+        s.append("Grade ID #").append(gradeID).append("\n");
+        s.append("Student ID #").append(student.getStudentID()).append("\n");
+        s.append("Assigned Grade: ").append(grade).append("\n");
         s.append("Recorded: ").append(dateRecorded);
 
         return s.toString();
