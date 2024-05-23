@@ -48,7 +48,7 @@ public class TeacherDAO {
 
                 //Validate result set
                 boolean hasRS = (rs != null);
-                if(hasRS){
+                if(hasRS && rs.next()){
 
                     //Start retrieving data
                     int teacherID = rs.getInt("teacher_id");
@@ -63,6 +63,17 @@ public class TeacherDAO {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }finally {
+            // Close resources in finally block to ensure they are closed even if an exception occurs
+            if (rs != null) {
+                try { rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
+            if (ps != null) {
+                try { ps.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
         }
 
         return teacher;

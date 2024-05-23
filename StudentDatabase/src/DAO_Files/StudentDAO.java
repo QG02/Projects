@@ -53,7 +53,7 @@ public class StudentDAO {
 
                 //Validate result set
                 boolean hasRS = (rs != null);
-                if(hasRS){
+                if(hasRS && rs.next()){
 
                     //Load the hashmap as parameters to pass it into the empty student object
                     HashMap<String, String> parameters = new HashMap<String, String>();
@@ -75,6 +75,17 @@ public class StudentDAO {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            // Close resources in finally block to ensure they are closed even if an exception occurs
+            if (rs != null) {
+                try { rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
+            if (ps != null) {
+                try { ps.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
+            if (conn != null) {
+                try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+            }
         }
         return student;
     }
