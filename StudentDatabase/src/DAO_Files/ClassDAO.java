@@ -48,7 +48,7 @@ public class ClassDAO {
                 rs = ps.executeQuery();
 
                 //Validate result set
-                boolean hasRS = (rs != null && rs.next());
+                boolean hasRS = (rs != null);
                 if(hasRS && rs.next()){
                     //Start retrieving data
                     int classId = rs.getInt("class_id");
