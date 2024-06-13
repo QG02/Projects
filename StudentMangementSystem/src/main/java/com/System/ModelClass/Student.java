@@ -58,24 +58,24 @@ public class Student{
     //Column annotation mapping the attribute to the first name column
     @Column(name = "student_first_name", length = 50)
     //Getter method for the student's first name
-    public String getFirstName() {
+    public String getStudentFirstName() {
         return firstName;
     }
 
     //Setter method for the student's last name
-    public void setFirstName(String firstName){
+    public void setStudentFirstName(String firstName){
         this.firstName = firstName;
     }
 
     //Column annotation mapping the attribute to the last name column
     @Column(name = "student_last_name", length = 50)
     //Getter method for the student's last name
-    public String getLastName() {
+    public String getStudentLastName() {
         return lastName;
     }
 
     //Setter method for the student's last name
-    public void setLastName(String lastName){
+    public void setStudentLastName(String lastName){
         this.lastName = lastName;
     }
 
@@ -119,12 +119,12 @@ public class Student{
     //Column annotation mapping the attribute to the email column
     @Column(name = "student_email", length = 50)
     //Getter method for the student's email
-    public String getEmail() {
+    public String getStudentEmail() {
         return email;
     }
 
     //Setter method for the student's email
-    public void setEmail(String email) {
+    public void setStudentEmail(String email) {
         this.email = email;
     }
 
@@ -145,11 +145,11 @@ public class Student{
         StringBuilder s = new StringBuilder();
 
         s.append("Student ID #").append(getStudentId()).append("\n");
-        s.append("Student Name: ").append(getFirstName()).append(" ").append(getLastName()).append("\n");
+        s.append("Student Name: ").append(getStudentFirstName()).append(" ").append(getStudentLastName()).append("\n");
         s.append("Date of Birth: ").append(getDateOfBirth()).append("\n");
         s.append("Gender: ").append(getGender()).append("\n");
         s.append("Address: ").append(getAddress()).append("\n");
-        s.append("Email: ").append(getEmail()).append("\n");
+        s.append("Email: ").append(getStudentEmail()).append("\n");
         s.append("Phone Number: ").append(getPhoneNumber()).append("\n");
 
         return s.toString();
