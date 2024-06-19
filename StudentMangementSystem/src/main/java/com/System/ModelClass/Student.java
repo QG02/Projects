@@ -150,7 +150,7 @@ public class Student{
         s.append("Gender: ").append(getGender()).append("\n");
         s.append("Address: ").append(getAddress()).append("\n");
         s.append("Email: ").append(getStudentEmail()).append("\n");
-        s.append("Phone Number: ").append(getPhoneNumber()).append("\n");
+        s.append("Phone Number: ").append(getPhoneNumber());
 
         return s.toString();
     }
