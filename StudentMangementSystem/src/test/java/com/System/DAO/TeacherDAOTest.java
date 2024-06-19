@@ -1,12 +1,10 @@
 package com.System.DAO;
 
-import com.System.ModelClass.Student;
 import com.System.ModelClass.Teacher;
 import com.System.Util.HibernateUtil;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import java.time.LocalDate;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Indicates that the test class will have a single instance
 public class TeacherDAOTest {
@@ -42,7 +40,7 @@ public class TeacherDAOTest {
         // Save the student using the StudentDAO
         teacherDAO.saveTeacher(teacher);
 
-        // Assert that the student ID is not null after saving
+        // Assert that the teacher ID is not null after saving
         assertNotNull(teacher.getTeacherId(), "Teacher ID should not be null after saving");
 
     }
