@@ -20,6 +20,7 @@ public class StudentDAO {
      * @param student: The student object to be saved.
      */
     public void saveStudent(Student student){
+
         // Open a new session from the SessionFactory
         Session session = sessionFactory.openSession();
 
@@ -38,9 +39,17 @@ public class StudentDAO {
 
     // Method to get a student by ID
     public Student getStudentById(int studentId) {
+
+        //Open a new session from the SessionFactory
         Session session = sessionFactory.openSession();
+
+        //Load the fetched parameters into an empty student object
         Student student = session.get(Student.class, studentId);
+
+        //Close the session to release database connection
         session.close();
+
+        //Return the newly constructed teacher object
         return student;
     }
 }
