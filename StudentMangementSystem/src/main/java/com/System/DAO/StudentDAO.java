@@ -15,7 +15,7 @@ public class StudentDAO {
         this.sessionFactory = sessionFactory;
     }
 
-     /**
+      /**
      * Method to save a Student object into the database.
      * @param student: The student object to be saved.
      */
@@ -27,12 +27,20 @@ public class StudentDAO {
         Transaction transaction = session.beginTransaction();
 
         // Save the student object using the persist method
-        session.persist(student);
+        session.save(student);
 
         // Commit the transaction to save changes to the database
         transaction.commit();
 
         // Close the session to release database connection
         session.close();
+    }
+
+    // Method to get a student by ID
+    public Student getStudentById(int studentId) {
+        Session session = sessionFactory.openSession();
+        Student student = session.get(Student.class, studentId);
+        session.close();
+        return student;
     }
 }

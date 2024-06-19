@@ -44,7 +44,7 @@ public class StudentAttendance {
     }
 
     //Setter method for the student attendance ID
-    public void setId(Integer studentAttendId) {
+    public void setStudentAttendId(Integer studentAttendId) {
         this.studentAttendId = studentAttendId;
     }
 

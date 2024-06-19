@@ -51,7 +51,7 @@ public class Student{
     }
 
     //Setter method for the student ID
-    public void setStudentID(Integer studentId){
+    public void setStudentId(Integer studentId){
         this.studentId = studentId;
     }
 

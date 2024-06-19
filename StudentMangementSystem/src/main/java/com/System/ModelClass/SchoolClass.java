@@ -50,7 +50,7 @@ public class SchoolClass {
     }
 
     //Setter method for the class ID
-    public void setId(Integer classId) {
+    public void setClassId(Integer classId) {
         this.classId = classId;
     }
 
@@ -64,18 +64,6 @@ public class SchoolClass {
     //Setter method for the class name
     public void setClassName(String className) {
         this.className = className;
-    }
-
-    //Column annotation mapping the attribute to the teacher id column
-    @Column(name = "teacher_id")
-    //Getter method for the teacher ID
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    //Setter method for the teacher ID
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
     }
 
     //Column annotation mapping the attribute to the start time column
