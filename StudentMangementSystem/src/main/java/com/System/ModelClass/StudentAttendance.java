@@ -49,7 +49,7 @@ public class StudentAttendance {
     }
 
     //Created Many to One relationship between the
-    //teacher table and the school class table
+    //attendance table and the student table
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "student_id")
     //Getter method for the student ID
