@@ -46,6 +46,24 @@ public class GradeDAOTest{
     }
 
     @Test
+    public void testDeleteGrade(){
+
+        //Create a new grade object and save it to the database
+        Grade g1 = new Grade(null, 94, 102, null, null);
+
+        //Store the object inside a DAO
+        gradeDAO.saveGrade(g1);
+
+        Integer gradeId = g1.getGradeId();
+        assertNotNull(gradeId, "Grade ID should not be null after saving");
+
+        gradeDAO.deleteGrade(gradeId);
+
+        Grade deletedGrade = gradeDAO.getGradeById(gradeId);
+        assertNull(deletedGrade, "Grade should be null");
+    }
+
+    @Test
     public void testGetGradeById() {
 
         // Fetch a grade by ID using the gradeDAO

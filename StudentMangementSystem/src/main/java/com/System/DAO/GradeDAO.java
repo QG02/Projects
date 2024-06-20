@@ -52,4 +52,25 @@ public class GradeDAO {
         //Return the newly constructed grade object
         return grade;
     }
+
+    public void deleteGrade(int gradeId){
+
+        //New session created
+        Session session = sessionFactory.openSession();
+
+        //New transaction started in the session
+        Transaction transaction = session.beginTransaction();
+
+        //Fetches and stores the object value to be deleted
+        Grade grade = session.get(Grade.class, gradeId);
+
+        //Deletes grade object
+        session.delete(grade);
+
+        //Commit transaction
+        transaction.commit();
+
+        //Close session
+        session.close();
+    }
 }
