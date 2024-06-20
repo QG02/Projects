@@ -150,7 +150,7 @@ public class Student{
     }
 
     //Setter method for the attendance list
-    public void setAttendances(List<StudentAttendance> attendances){
+    public void setStudentAttendance(List<StudentAttendance> attendances){
         this.attendances = attendances;
     }
 
