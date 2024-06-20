@@ -3,6 +3,7 @@ package com.System.ModelClass;
 //Imports
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 //Declare the student class as an entity that maps to the student table in the database
 @Entity
@@ -18,6 +19,7 @@ public class Student{
     private String address;
     private String email;
     private String phoneNumber;
+    private List<StudentAttendance> attendances;
 
     //Constructor
     public Student(Integer studentId, String firstName, String lastName, LocalDate dateOfBirth, String gender, String address, String email, String phoneNumber){
@@ -29,6 +31,7 @@ public class Student{
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
     }
 
     //Empty constructor for generated objects
@@ -138,6 +141,17 @@ public class Student{
     //Setter method for the student's phone number
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    //Getter method for the attendance list
+    public List<StudentAttendance> getStudentAttendance(){
+        return attendances;
+    }
+
+    //Setter method for the attendance list
+    public void setAttendances(List<StudentAttendance> attendances){
+        this.attendances = attendances;
     }
 
     @Override
