@@ -19,7 +19,7 @@ public class Student{
     private String address;
     private String email;
     private String phoneNumber;
-    private List<StudentAttendance> attendances;
+    private List<StudentAttendance> studentAttendances;
 
     //Constructor
     public Student(Integer studentId, String firstName, String lastName, LocalDate dateOfBirth, String gender, String address, String email, String phoneNumber){
@@ -146,12 +146,12 @@ public class Student{
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     //Getter method for the attendance list
     public List<StudentAttendance> getStudentAttendance(){
-        return attendances;
+        return studentAttendances;
     }
 
     //Setter method for the attendance list
-    public void setStudentAttendance(List<StudentAttendance> attendances){
-        this.attendances = attendances;
+    public void setStudentAttendance(List<StudentAttendance> studentAttendances){
+        this.studentAttendances = studentAttendances;
     }
 
     @Override
