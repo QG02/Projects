@@ -16,8 +16,8 @@ public class SchoolClassDAO {
     }
 
     /**
-     * Method to save a Student object into the database.
-     * @param schoolClass: The student object to be saved.
+     * Method to save a class object into the database.
+     * @param schoolClass: The class object to be saved.
      */
     public void saveSchoolClass(SchoolClass schoolClass){
 
@@ -37,19 +37,19 @@ public class SchoolClassDAO {
         session.close();
     }
 
-    // Method to get a student by ID
+    // Method to get a class by ID
     public SchoolClass getSchoolClassById(int classId) {
 
         //Open a new session from the SessionFactory
         Session session = sessionFactory.openSession();
 
-        //Load the fetched parameters into an empty student object
+        //Load the fetched parameters into an empty class object
         SchoolClass schoolClass = session.get(SchoolClass.class, classId);
 
         //Close the session to release database connection
         session.close();
 
-        //Return the newly constructed teacher object
+        //Return the newly constructed class object
         return schoolClass;
     }
 }
