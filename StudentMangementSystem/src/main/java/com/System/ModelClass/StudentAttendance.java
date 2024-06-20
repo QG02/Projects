@@ -107,7 +107,7 @@ public class StudentAttendance {
         s.append(" ").append(getStudent().getStudentLastName()).append("\n");
         s.append("Class ID #").append(getClassId()).append("\n");
         s.append("Date Recorded: ").append(getStudentAttendRecord()).append("\n");
-        s.append("Status: ").append(getStudentAttendStatus()).append("\n");
+        s.append("Status: ").append(getStudentAttendStatus());
 
         return s.toString();
     }
