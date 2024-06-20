@@ -11,14 +11,14 @@ public class TeacherAttendance {
 
     //Initialize Variables
     private Integer teacherAttendId;
-    private Integer teacherId;
+    private Teacher teacher;
     private LocalDate dateRecord;
     private String status;
 
     //Constructor
-    public TeacherAttendance(Integer teacherAttendId, Integer teacherId, LocalDate dateRecord, String status) {
+    public TeacherAttendance(Integer teacherAttendId, Teacher teacher, LocalDate dateRecord, String status) {
         this.teacherAttendId = teacherAttendId;
-        this.teacherId = teacherId;
+        this.teacher = teacher;
         this.dateRecord = dateRecord;
         this.status = status;
     }
@@ -46,17 +46,18 @@ public class TeacherAttendance {
         this.teacherAttendId = teacherAttendId;
     }
 
-
-    //Column annotation mapping the attribute to the teacher's id column from the teacher table
-    @Column(name = "teacher_id")
-    //Getter method for the teacher ID
-    public Integer getTeacherId() {
-        return teacherId;
+    //Created Many to One relationship between the
+    //attendance table and teacher table
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", referencedColumnName = "teacher_id")
+   //Getter method for the teacher ID
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     //Setter method for the teacher ID
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     //Column annotation mapping the attribute to the date recorded column
@@ -85,10 +86,11 @@ public class TeacherAttendance {
 
     @Override
     public String toString(){
+
         StringBuilder s = new StringBuilder();
 
         s.append("Teacher Attendance ID #").append(getTeacherAttendId()).append("\n");
-        s.append("Teacher ID # ").append(getTeacherId()).append("\n");
+        s.append("Teacher: ").append(getTeacher().getTeacherLastName()).append("\n");
         s.append("Date Recorded: ").append(getTeacherDateRecord()).append("\n");
         s.append("Status: ").append(getTeacherAttendStatus());
 
