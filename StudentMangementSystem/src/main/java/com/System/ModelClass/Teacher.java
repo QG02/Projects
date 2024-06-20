@@ -3,6 +3,8 @@ package com.System.ModelClass;
 //Imports
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //Declare the teacher class as an entity that maps to the teacher table in the database
 @Entity
 @Table(name = "teacher")
@@ -14,6 +16,7 @@ public class Teacher {
     private String lastName;
     private String email;
     private String specialization;
+    private List<TeacherAttendance> teacherAttendance;
 
     //Constructor
     public Teacher(Integer teacherId, String firstName, String lastName, String email, String specialization) {
@@ -94,6 +97,17 @@ public class Teacher {
     //Setter method for the teacher specialization
     public void setSpecialization(String specialization) {
         this.specialization = specialization;
+    }
+
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    //Getter method for the attendance list
+    public List<TeacherAttendance> getTeacherAttendance(){
+        return  teacherAttendance;
+    }
+
+    //Setter method for the attendance list
+    public void setTeacherAttendance(List<TeacherAttendance> teacherAttendance){
+        this.teacherAttendance = teacherAttendance;
     }
 
     @Override
