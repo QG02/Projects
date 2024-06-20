@@ -49,7 +49,7 @@ public class StudentDAO {
         //Close the session to release database connection
         session.close();
 
-        //Return the newly constructed teacher object
+        //Return the newly constructed student object
         return student;
     }
 }
