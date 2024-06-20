@@ -16,7 +16,6 @@ public class SchoolClass {
     //Initialize Variable
     private Integer classId;
     private String className;
-    private Integer teacherId;
     private LocalTime startTime;
     private LocalTime endTime;
     private Teacher teacher;
@@ -25,7 +24,6 @@ public class SchoolClass {
     public SchoolClass(Integer classId, String className, Integer teacherId, LocalTime startTime, LocalTime endTime) {
         this.classId = classId;
         this.className = className;
-        this.teacherId = teacherId;
         this.startTime = startTime;
         this.endTime = endTime;
     }
