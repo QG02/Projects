@@ -11,15 +11,15 @@ public class StudentAttendance {
 
     //Initialize Variables
     private Integer studentAttendId;
-    private Integer studentId;
+    private Student student;
     private Integer classId;
     private LocalDate dateRecord;
     private String status;
 
     //Constructor
-    public StudentAttendance(Integer studentAttendId, Integer studentId, Integer classId, LocalDate dateRecord, String status) {
+    public StudentAttendance(Integer studentAttendId, Student student, Integer classId, LocalDate dateRecord, String status) {
         this.studentAttendId = studentAttendId;
-        this.studentId = studentId;
+        this.student = student;
         this.classId = classId;
         this.dateRecord = dateRecord;
         this.status = status;
@@ -48,17 +48,18 @@ public class StudentAttendance {
         this.studentAttendId = studentAttendId;
     }
 
-
-    //Column annotation mapping the attribute to the student's id column from the student table
-    @Column(name = "student_id")
+    //Created Many to One relationship between the
+    //teacher table and the school class table
+    @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "student_id")
     //Getter method for the student ID
-    public Integer getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
     //Setter method for the student ID
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     //Column annotation mapping the attribute to the class's id column from the schoolClass table
@@ -98,10 +99,12 @@ public class StudentAttendance {
 
     @Override
     public String toString(){
+        Student student = new Student();
         StringBuilder s = new StringBuilder();
 
         s.append("Student Attendance ID #").append(getStudentAttendId()).append("\n");
-        s.append("Student ID #").append(getStudentId()).append("\n");
+        s.append("Student: ").append(getStudent().getStudentFirstName());
+        s.append(" ").append(getStudent().getStudentLastName()).append("\n");
         s.append("Class ID #").append(getClassId()).append("\n");
         s.append("Date Recorded: ").append(getStudentAttendRecord()).append("\n");
         s.append("Status: ").append(getStudentAttendStatus()).append("\n");
