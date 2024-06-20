@@ -40,12 +40,12 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "grade_id", nullable = false)
     //Getter method for the grade ID
-    public Integer getId() {
+    public Integer getGradeId() {
         return gradeId;
     }
 
     //Setter method for the grade ID
-    public void setId(Integer gradeId) {
+    public void setGradeId(Integer gradeId) {
         this.gradeId = gradeId;
     }
 
@@ -102,8 +102,9 @@ public class Grade {
     public String toString(){
         StringBuilder s = new StringBuilder();
 
-        s.append("Grade ID #").append(getId()).append("\n");
+        s.append("Grade ID #").append(getGradeId()).append("\n");
         s.append("Student ID #").append(getStudentId()).append("\n");
+        s.append("Class ID #").append(getClassId()).append("\n");
         s.append("Assigned Grade: ").append(getGrade()).append("\n");
         s.append("Recorded: ").append(getDateRecorded());
 
