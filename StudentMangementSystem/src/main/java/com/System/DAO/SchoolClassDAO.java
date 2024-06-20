@@ -1,5 +1,6 @@
 package com.System.DAO;
 
+import com.System.ModelClass.Grade;
 import com.System.ModelClass.SchoolClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,7 +38,25 @@ public class SchoolClassDAO {
         session.close();
     }
 
-    // Method to get a class by ID
+    public void deleteSchoolClass(SchoolClass schoolClass){
+
+        // Open a new session from the SessionFactory
+        Session session = sessionFactory.openSession();
+
+        //Begin a new transaction
+        Transaction transaction = session.beginTransaction();
+
+        //Save the grade object using the persist method
+        session.delete(schoolClass);
+
+        //Commit the transaction to save changes to the database
+        transaction.commit();
+
+        //Close the session to release database connection
+        session.close();
+    }
+
+      // Method to get a class by ID
     public SchoolClass getSchoolClassById(int classId) {
 
         //Open a new session from the SessionFactory
