@@ -1,6 +1,5 @@
 package com.System.DAO;
 
-import com.System.ModelClass.Grade;
 import com.System.ModelClass.SchoolClass;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
