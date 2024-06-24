@@ -1,5 +1,6 @@
 package com.System.DAO;
 
+import com.System.ModelClass.Grade;
 import com.System.ModelClass.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -51,5 +52,28 @@ public class StudentDAO {
 
         //Return the newly constructed student object
         return student;
+    }
+
+    public void deleteStudent(int studentId){
+
+        //New session created
+        Session session = sessionFactory.openSession();
+
+        //New transaction started in the session
+        Transaction transaction = session.beginTransaction();
+
+        //Fetches and stores the object value to be deleted
+        Student student = session.get(Student.class, studentId);
+
+        //Deletes student object
+        if(student != null){
+            session.delete(student);
+        }
+
+        //Commit transaction
+        transaction.commit();
+
+        //Close session
+        session.close();
     }
 }
