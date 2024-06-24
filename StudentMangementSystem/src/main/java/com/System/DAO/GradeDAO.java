@@ -65,7 +65,9 @@ public class GradeDAO {
         Grade grade = session.get(Grade.class, gradeId);
 
         //Deletes grade object
-        session.delete(grade);
+        if(grade != null){
+            session.delete(grade);
+        }
 
         //Commit transaction
         transaction.commit();
