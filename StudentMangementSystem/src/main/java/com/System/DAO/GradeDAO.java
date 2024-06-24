@@ -27,7 +27,7 @@ public class GradeDAO {
         // Begin a new transaction
         Transaction transaction = session.beginTransaction();
 
-        // Save the grade object using the persist method
+        // Save the grade object using the save method
         session.save(grade);
 
         // Commit the transaction to save changes to the database

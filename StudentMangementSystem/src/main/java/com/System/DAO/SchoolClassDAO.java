@@ -27,7 +27,7 @@ public class SchoolClassDAO {
         // Begin a new transaction
         Transaction transaction = session.beginTransaction();
 
-        // Save the class object using the persist method
+        // Save the class object using the save method
         session.save(schoolClass);
 
         // Commit the transaction to save changes to the database
@@ -48,7 +48,7 @@ public class SchoolClassDAO {
         //Fetch the school class object using its ID
         SchoolClass schoolClass = session.get(SchoolClass.class, classId);
 
-        //Save the grade object using the persist method
+        //Delete the class object using the delete method
         if(schoolClass != null){
             session.delete(schoolClass);
         }
