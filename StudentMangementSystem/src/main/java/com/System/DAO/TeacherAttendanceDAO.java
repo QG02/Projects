@@ -1,5 +1,6 @@
 package com.System.DAO;
 
+import com.System.ModelClass.StudentAttendance;
 import com.System.ModelClass.TeacherAttendance;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -52,4 +53,28 @@ public class TeacherAttendanceDAO {
         //Return the newly constructed attendance object
         return teacherAttendance;
     }
+
+    public void deleteTeacherAttendance(int teacherAttendId){
+
+        // Open a new session from the SessionFactory
+        Session session = sessionFactory.openSession();
+
+        //Begin a new transaction
+        Transaction transaction = session.beginTransaction();
+
+        //Fetch the teacher attendance object using its ID
+        TeacherAttendance teacherAttendance = session.get(TeacherAttendance.class, teacherAttendId);
+
+        //Save the attendance object using the delete method
+        if(teacherAttendance!= null){
+            session.delete(teacherAttendance);
+        }
+
+        //Commit the transaction to save changes to the database
+        transaction.commit();
+
+        //Close the session to release database connection
+        session.close();
+    }
+
 }
