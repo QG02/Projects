@@ -1,6 +1,5 @@
 package com.System.DAO;
 
-import com.System.ModelClass.SchoolClass;
 import com.System.ModelClass.StudentAttendance;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
