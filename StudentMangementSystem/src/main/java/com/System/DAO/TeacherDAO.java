@@ -52,4 +52,28 @@ public class TeacherDAO {
         //Return the newly constructed teacher object
         return teacher;
     }
+
+    public void deleteTeacher(int teacherId){
+
+        //New session created
+        Session session = sessionFactory.openSession();
+
+        //New transaction started in the session
+        Transaction transaction = session.beginTransaction();
+
+        //Fetches and stores the object value to be deleted
+        Teacher teacher = session.get(Teacher.class, teacherId);
+
+        //Deletes teacher object
+        if(teacher != null){
+            session.delete(teacher);
+        }
+
+        //Commit transaction
+        transaction.commit();
+
+        //Close session
+        session.close();
+    }
+    
 }
