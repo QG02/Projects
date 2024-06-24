@@ -5,7 +5,7 @@ import com.System.Util.HibernateUtil;
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-import java.time.LocalDate;
+import java.time.LocalTime;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS) // Indicates that the test class will have a single instance
 public class SchoolClassDAOTest{
@@ -57,5 +57,20 @@ public class SchoolClassDAOTest{
                 "Class Name: English\n" +
                 "Teacher: Brown\n" +
                 "Class Time: 11:30:00-13:00:00", c1.toString());
+    }
+
+    @Test
+    public void testDeleteClass(){
+
+        //Fetch a school class by ID using the SchoolClassDAO
+        SchoolClass c2 = new SchoolClass(null, "PE", 20, LocalTime.of(10,0,0), LocalTime.of(11,0,0));
+
+        schoolClassDAO.saveSchoolClass(c2);
+        assertNotNull(c2.getClassId(), "Class ID should not be null");
+
+        schoolClassDAO.saveSchoolClass(c2);
+
+        schoolClassDAO.deleteSchoolClass(c2.getClassId());
+        assertNull(c2.getClassId(),"Class ID should be null");
     }
 }
