@@ -37,7 +37,7 @@ public class SchoolClassDAO {
         session.close();
     }
 
-    public void deleteSchoolClass(SchoolClass schoolClass){
+    public void deleteSchoolClass(int classId){
 
         // Open a new session from the SessionFactory
         Session session = sessionFactory.openSession();
@@ -45,8 +45,13 @@ public class SchoolClassDAO {
         //Begin a new transaction
         Transaction transaction = session.beginTransaction();
 
+        //Fetch the school class object using its ID
+        SchoolClass schoolClass = session.get(SchoolClass.class, classId);
+
         //Save the grade object using the persist method
-        session.delete(schoolClass);
+        if(schoolClass != null){
+            session.delete(schoolClass);
+        }
 
         //Commit the transaction to save changes to the database
         transaction.commit();
