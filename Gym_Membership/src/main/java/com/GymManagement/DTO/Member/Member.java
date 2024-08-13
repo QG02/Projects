@@ -1,5 +1,8 @@
-package com.GymManagement.DTO;
+package com.GymManagement.DTO.Member;
 
+import com.GymManagement.DTO.Enrollment;
+import com.GymManagement.DTO.MemberMembership;
+import com.GymManagement.DTO.Payment;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -31,26 +34,11 @@ public class Member {
     @Column(name = "phone", length = 20)
     private String memberPhone;
 
-    @Column(name = "member_address")
-    private String memberAddress;
+    @Embedded
+    private MemberAddress memberAddress;
 
-    @Column(name = "member_city")
-    private String memberCity;
-
-    @Column(name = "member_state")
-    private String memberState;
-
-    @Column(name = "member_zip")
-    private String memberZip;
-
-    @Column(name = "member_bank")
-    private String memberBank;
-
-    @Column(name = "member_routing", length = 25)
-    private String memberRouting;
-
-    @Column(name = "member_account", length = 25)
-    private String memberAccount;
+    @Embedded
+    private MemberBank memberBank;
 
     @OneToMany(mappedBy = "member")
     private Set<Enrollment> enrollments = new LinkedHashSet<>();
@@ -86,32 +74,12 @@ public class Member {
         return memberPhone;
     }
 
-    public String getMemberAddress() {
-        return memberAddress;
-    }
-
-    public String getMemberCity() {
-        return memberCity;
-    }
-
-    public String getMemberState() {
-        return memberState;
-    }
-
-    public String getMemberZip() {
-        return memberZip;
-    }
-
-    public String getMemberBank() {
+    public MemberBank getMemberBank(){
         return memberBank;
     }
 
-    public String getMemberRouting() {
-        return memberRouting;
-    }
-
-    public String getMemberAccount() {
-        return memberAccount;
+    public MemberAddress getMemberAddress(){
+        return memberAddress;
     }
 
     public Set<Enrollment> getEnrollments() {
@@ -151,32 +119,12 @@ public class Member {
         this.memberPhone = memberPhone;
     }
 
-    public void setMemberAddress(String memberAddress) {
-        this.memberAddress = memberAddress;
-    }
-
-    public void setMemberCity(String memberCity) {
-        this.memberCity = memberCity;
-    }
-
-    public void setMemberState(String memberState) {
-        this.memberState = memberState;
-    }
-
-    public void setMemberZip(String memberZip) {
-        this.memberZip = memberZip;
-    }
-
-    public void setMemberBank(String memberBank) {
+    public void setMemberBank(MemberBank memberBank){
         this.memberBank = memberBank;
     }
 
-    public void setMemberRouting(String memberRouting) {
-        this.memberRouting = memberRouting;
-    }
-
-    public void setMemberAccount(String memberAccount) {
-        this.memberAccount = memberAccount;
+    public void setMemberAddress(MemberAddress memberAddress){
+        this.memberAddress = memberAddress;
     }
 
     public void setEnrollments(Set<Enrollment> enrollments) {

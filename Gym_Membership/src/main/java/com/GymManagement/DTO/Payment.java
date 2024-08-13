@@ -1,5 +1,6 @@
 package com.GymManagement.DTO;
 
+import com.GymManagement.DTO.Member.Member;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
