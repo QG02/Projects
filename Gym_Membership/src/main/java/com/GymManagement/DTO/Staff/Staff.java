@@ -29,26 +29,11 @@ public class Staff {
     @Column(name = "phone", length = 20)
     private String staffPhone;
 
-    @Column(name = "staff_address")
-    private String staffAddress;
+    @Embedded
+    private StaffAddress staffAddress;
 
-    @Column(name = "staff_city")
-    private String staffCity;
-
-    @Column(name = "staff_state")
-    private String staffState;
-
-    @Column(name = "staff_zip")
-    private String staffZip;
-
-    @Column(name = "staff_bank")
-    private String staffBank;
-
-    @Column(name = "staff_routing")
-    private String staffRouting;
-
-    @Column(name = "staff_account", length = 25)
-    private String staffAccount;
+    @Embedded
+    private StaffBank staffBank;
 
     @OneToMany(mappedBy = "staff")
     private Set<Employment> employments = new LinkedHashSet<>();
@@ -78,33 +63,9 @@ public class Staff {
         return staffPhone;
     }
 
-    public String getStaffAddress() {
-        return staffAddress;
-    }
+    public StaffAddress getStaffAddress(){ return staffAddress; }
 
-    public String getStaffCity() {
-        return staffCity;
-    }
-
-    public String getStaffState() {
-        return staffState;
-    }
-
-    public String getStaffZip() {
-        return staffZip;
-    }
-
-    public String getStaffBank() {
-        return staffBank;
-    }
-
-    public String getStaffRouting() {
-        return staffRouting;
-    }
-
-    public String getStaffAccount() {
-        return staffAccount;
-    }
+    public StaffBank getStaffBank(){ return staffBank; }
 
     public Set<Employment> getEmployments() {
         return employments;
@@ -135,33 +96,9 @@ public class Staff {
         this.staffPhone = staffPhone;
     }
 
-    public void setStaffAddress(String staffAddress) {
-        this.staffAddress = staffAddress;
-    }
+    public void setStaffAddress(StaffAddress staffAddress) { this.staffAddress = staffAddress; }
 
-    public void setStaffCity(String staffCity) {
-        this.staffCity = staffCity;
-    }
-
-    public void setStaffState(String staffState) {
-        this.staffState = staffState;
-    }
-
-    public void setStaffZip(String staffZip) {
-        this.staffZip = staffZip;
-    }
-
-    public void setStaffBank(String staffBank) {
-        this.staffBank = staffBank;
-    }
-
-    public void setStaffRouting(String staffRouting) {
-        this.staffRouting = staffRouting;
-    }
-
-    public void setStaffAccount(String staffAccount) {
-        this.staffAccount = staffAccount;
-    }
+    public void setStaffBank(StaffBank staffBank) { this.staffBank = staffBank; }
 
     public void setEmployments(Set<Employment> employments) {
         this.employments = employments;
