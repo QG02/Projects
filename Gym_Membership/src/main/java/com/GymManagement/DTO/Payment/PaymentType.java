@@ -1,16 +1,14 @@
-package com.GymManagement.DTO;
+package com.GymManagement.DTO.Payment;
 
-public enum MembershipType {
+public enum PaymentType {
 
-    REGULAR("regular"),
-    DUO("duo"),
-    CHILD("child"),
-    SENIOR("senior"),
-    STUDENT("student");
+    CASH("cash"),
+    DEBIT("debit"),
+    CREDIT("credit");
 
     private final String value;
 
-    MembershipType(String value){
+    PaymentType(String value){
         this.value = value;
     }
 
@@ -18,12 +16,14 @@ public enum MembershipType {
         return value;
     }
 
-    public MembershipType fromValue(String value){
-        for(MembershipType type: MembershipType.values()){
+    public static PaymentType fromValue(String value){
+        for(PaymentType type: PaymentType.values()){
             if(type.value.equalsIgnoreCase(value)){
                 return type;
             }
         }
         throw new IllegalArgumentException("UNKNOWN VALUE" + value);
     }
+
 }
+

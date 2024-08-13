@@ -1,4 +1,4 @@
-package com.GymManagement.DTO;
+package com.GymManagement.DTO.Session;
 
 import jakarta.persistence.*;
 
