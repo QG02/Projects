@@ -25,8 +25,9 @@ public class Payment {
     @Column(name = "date_time")
     private Instant dateTime;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "payment_type", length = 25)
-    private String paymentType;
+    private PaymentType paymentType;
 
     //GETTER METHODS
     public Integer getPaymentId() {
@@ -41,7 +42,7 @@ public class Payment {
         return amount;
     }
 
-    public String getPaymentType() {
+    public PaymentType getPaymentType() {
         return paymentType;
     }
 
@@ -66,7 +67,7 @@ public class Payment {
         this.dateTime = dateTime;
     }
 
-    public void setPaymentType(String paymentType) {
+    public void setPaymentType(PaymentType paymentType) {
         this.paymentType = paymentType;
     }
 

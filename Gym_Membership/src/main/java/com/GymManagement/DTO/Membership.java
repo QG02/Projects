@@ -21,8 +21,9 @@ public class Membership {
     @JoinColumn(name = "membership_id", nullable = false)
     private Member member;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "member_type", length = 25)
-    private String memberType;
+    private MembershipType memberType;
 
     @Column(name = "membership_details", length = 1024)
     private String membershipDetails;
@@ -44,7 +45,7 @@ public class Membership {
         return member;
     }
 
-    public String getMemberType() {
+    public MembershipType getMemberType() {
         return memberType;
     }
 
@@ -73,7 +74,7 @@ public class Membership {
         this.membershipId = membershipId;
     }
 
-    public void setMemberType(String memberType) {
+    public void setMemberType(MembershipType memberType) {
         this.memberType = memberType;
     }
 
