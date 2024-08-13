@@ -1,8 +1,8 @@
 package com.GymManagement.DTO.Member;
 
-import com.GymManagement.DTO.Enrollment;
-import com.GymManagement.DTO.MemberMembership;
-import com.GymManagement.DTO.Payment;
+import com.GymManagement.DTO.Session.Enrollment;
+import com.GymManagement.DTO.MemberShip.MemberMembership;
+import com.GymManagement.DTO.Payment.Payment;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
