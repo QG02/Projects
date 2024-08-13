@@ -2,7 +2,7 @@ package com.GymManagement.DTO.Member;
 
 import jakarta.persistence.*;
 
-//Bank class created as an abstraction for the member object class.
+//MemberBank class created as an abstraction for the member object class.
 //Parses the bank information from the member's table from the database
 //as a separate object, which is passed to the member object when created.
 @Embeddable
