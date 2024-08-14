@@ -8,6 +8,16 @@ import jakarta.persistence.*;
 @Embeddable
 public class MemberBank {
 
+    //CONSTRUCTOR
+    public MemberBank(String memberBank, String memberRouting, String memberAccount){
+        this.memberBank = memberBank;
+        this.memberRouting = memberRouting;
+        this.memberAccount = memberRouting;
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public MemberBank(){}
+
     //ATTRIBUTE MAPPING
     @Column(name = "member_bank")
     private String memberBank;

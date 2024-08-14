@@ -8,6 +8,19 @@ import jakarta.persistence.*;
 @Embeddable
 public class MemberAddress {
 
+    //CONSTRUCTOR
+    public MemberAddress(String memberAddress, String memberCity, String memberState, String memberZip){
+
+        this.memberAddress = memberAddress;
+        this.memberCity = memberCity;
+        this.memberState = memberState;
+        this.memberZip = memberZip;
+
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public MemberAddress(){}
+
     //ATTRIBUTE MAPPING
     @Column(name = "member_address")
     private String memberAddress;

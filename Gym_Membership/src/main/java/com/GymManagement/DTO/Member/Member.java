@@ -13,6 +13,28 @@ import java.util.Set;
 @Table(name = "member")
 public class Member {
 
+    //CONSTRUCTOR
+    public Member(Integer memberId, String memberFN, String memberLN,
+                  LocalDate memberDOB, String memberEmail, String memberPhone,
+                  MemberAddress memberAddress, MemberBank memberBank){
+
+        this.memberId = memberId;
+        this.memberFN = memberFN;
+        this.memberLN = memberLN;
+        this.memberDOB = memberDOB;
+        this.memberEmail = memberEmail;
+        this.memberPhone = memberPhone;
+        this.memberAddress = memberAddress;
+        this.memberBank = memberBank;
+        this.enrollments = new LinkedHashSet<>();
+        this.memberMemberships = new LinkedHashSet<>();
+        this.payments = new LinkedHashSet<>();
+
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public Member(){}
+    
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
