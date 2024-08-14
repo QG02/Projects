@@ -9,6 +9,21 @@ import java.time.LocalDate;
 @Table(name = "member_membership")
 public class MemberMembership {
 
+    //CONSTRUCTOR
+    public MemberMembership(Integer memberMembershipId,Member member,Membership membership,
+                            LocalDate membershipStartDate,LocalDate membershipEndDate){
+
+        this.memberMembershipId = memberMembershipId;
+        this.member = member;
+        this.membership = membership;
+        this.membershipStartDate = membershipStartDate;
+        this.membershipEndDate = membershipEndDate;
+
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public MemberMembership(){}
+
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

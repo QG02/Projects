@@ -11,6 +11,23 @@ import java.util.Set;
 @Table(name = "membership")
 public class Membership {
 
+    //CONSTRUCTOR
+    public Membership(Integer membershipId,Member member,MembershipType memberType,
+                      String membershipDetails,BigDecimal price,String duration){
+
+        this.membershipId = membershipId;
+        this.member = member;
+        this.memberType = memberType;
+        this.membershipDetails = membershipDetails;
+        this.price = price;
+        this.duration = duration;
+        this.memberMemberships = new LinkedHashSet<>();
+
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public Membership(){}
+
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

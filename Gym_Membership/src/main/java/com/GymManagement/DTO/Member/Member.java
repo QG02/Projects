@@ -34,7 +34,7 @@ public class Member {
 
     //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
     public Member(){}
-    
+
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
