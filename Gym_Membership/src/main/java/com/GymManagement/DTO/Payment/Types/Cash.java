@@ -6,6 +6,20 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "cash")
 public class Cash {
+
+    //CONSTRUCTOR
+    public Cash(Integer cashId,Payment payment,String givenCash,String returnedCash){
+
+        this.cashId = cashId;
+        this.payment = payment;
+        this.givenCash = givenCash;
+        this.returnedCash = returnedCash;
+        
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public Cash(){}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cash_id", nullable = false)

@@ -6,6 +6,24 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "credit_cards")
 public class CreditCard {
+
+    //CONSTRUCTOR
+    public CreditCard(Integer ccId,Payment payment,String ccName,
+                      String ccNumber,String ccExpiration,String ccCcv){
+
+        this.ccId = ccId;
+        this.payment = payment;
+        this.ccName = ccName;
+        this.ccNumber = ccNumber;
+        this.ccExpiration = ccExpiration;
+        this.ccCcv = ccCcv;
+
+    }
+
+    //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
+    public CreditCard(){}
+
+    //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cc_id", nullable = false)

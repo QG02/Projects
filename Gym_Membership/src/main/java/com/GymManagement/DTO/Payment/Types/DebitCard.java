@@ -7,6 +7,23 @@ import jakarta.persistence.*;
 @Table(name = "debit_cards")
 public class DebitCard {
 
+    //CONSTRUCTOR
+    public DebitCard(Integer dcId,Payment payment,String dcName,
+                     String dcNumber,String dcExpiration,String dcCvv,String dcPin){
+
+        this.dcId = dcId;
+        this.payment = payment;
+        this.dcName = dcName;
+        this.dcNumber = dcNumber;
+        this.dcExpiration = dcExpiration;
+        this.dcCvv = dcCvv;
+        this.dcPin= dcPin;
+
+    }
+
+    //EMPTY CONSTRUCTOR
+    public DebitCard(){}
+
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,6 +10,20 @@ import java.time.Instant;
 @Table(name = "payment")
 public class Payment {
 
+    //CONSTRUCTOR
+    public Payment(Integer paymentId,Member member,BigDecimal amount,Instant dateTime,PaymentType paymentType){
+
+        this.paymentId = paymentId;
+        this.member = member;
+        this.amount = amount;
+        this.dateTime = dateTime;
+        this.paymentType = paymentType;
+
+    }
+
+    //EMPTY CONSTRUCTOR
+    public Payment(){}
+
     //ATTRIBUTE MAPPING
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
