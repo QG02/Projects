@@ -1,22 +1,3 @@
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      #    #    #     #    #       ######  ####### ######  #######  
-      #   # #   #     #   # #      #     # #       #     # #     # 
-      #  #   #  #     #  #   #     #     # #       #     # #     # 
-      # #     # #     # #     #    ######  #####   ######  #     #   
-#     # #######  #   #  #######    #   #   #       #       #     #   
-#     # #     #   # #   #     #    #    #  #       #       #     # 
- #####  #     #    #    #     #    #     # ####### #       #######  
-
 Welcome to My Java-Exclusive Repository
 This repository is dedicated to showcasing my Java projects, designed to demonstrate my expertise in the language.
 From core Java applications to more complex projects using frameworks like Spring Boot and Hibernate, you'll find a variety of code examples here.
