@@ -1,6 +1,5 @@
 package com.GymManagement;
 
-
 import com.GymManagement.DTO.Member.Member;
 import com.GymManagement.Repository.MemberRepository;
 import com.GymManagement.Services.MemberService;
