@@ -14,7 +14,7 @@ public class Cash {
         this.payment = payment;
         this.givenCash = givenCash;
         this.returnedCash = returnedCash;
-        
+
     }
 
     //EMPTY CONSTRUCTOR - HIBERNATE REQUIREMENT
